@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tennis Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="back-link" href="../../index.html">← Portfolio</a>
+
+  <h1>Tennis</h1>
+  <div id="scoreBoard">
+    <div class="score-side">
+      <div id="playerReach" class="reach-slot"></div>
+      <div class="score-label">Player: <span id="playerScore">0</span></div>
+    </div>
+    <div class="score-sep">|</div>
+    <div class="score-side">
+      <div id="cpuReach" class="reach-slot"></div>
+      <div class="score-label">CPU: <span id="cpuScore">0</span></div>
+    </div>
+  </div>
+  <canvas id="gameCanvas" width="800" height="500"></canvas>
+  <div id="message">Press SPACE or click to start</div>
+  <div id="controls">W/S or ↑/↓ to move &nbsp;|&nbsp; SPACE to serve</div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

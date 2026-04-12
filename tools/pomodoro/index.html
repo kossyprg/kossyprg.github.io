@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja" data-phase="work">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="back-link" href="../../index.html">← Portfolio</a>
+
+  <main>
+    <h1 class="app-title">Pomodoro Timer</h1>
+
+    <div class="timer-card">
+
+      <div class="status-label" id="statusLabel"></div>
+
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 300 300" aria-hidden="true">
+          <circle class="ring-track" cx="150" cy="150" r="128"/>
+          <circle class="ring-progress" id="ringProgress" cx="150" cy="150" r="128"/>
+        </svg>
+        <div class="ring-inner">
+          <div class="phase-label" id="phaseLabel">作業</div>
+          <div class="time-display" id="timeDisplay">25:00</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="startStopBtn">スタート</button>
+        <button class="btn btn-secondary" id="resetBtn">リセット</button>
+      </div>
+
+    </div>
+
+    <div class="settings-card">
+      <h2 class="settings-heading">設定</h2>
+      <div class="settings-grid">
+        <div class="setting-group">
+          <span class="setting-label">作業時間</span>
+          <div class="time-inputs">
+            <label class="input-unit">
+              <input type="number" id="workMin" min="0" max="99" value="25">
+              <span>分</span>
+            </label>
+            <label class="input-unit">
+              <input type="number" id="workSec" min="0" max="59" value="0">
+              <span>秒</span>
+            </label>
+          </div>
+        </div>
+        <div class="setting-divider"></div>
+        <div class="setting-group">
+          <span class="setting-label">休憩時間</span>
+          <div class="time-inputs">
+            <label class="input-unit">
+              <input type="number" id="breakMin" min="0" max="99" value="5">
+              <span>分</span>
+            </label>
+            <label class="input-unit">
+              <input type="number" id="breakSec" min="0" max="59" value="0">
+              <span>秒</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

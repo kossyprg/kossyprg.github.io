@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel → Markdown</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="back-link" href="../../index.html">← Portfolio</a>
+
+  <main>
+    <h1 class="app-title">Excel → Markdown</h1>
+
+    <div class="options-bar">
+      <label class="option-item">
+        <input type="checkbox" id="useHeader" checked>
+        <span>先頭行をヘッダとして扱う</span>
+      </label>
+      <label class="option-item">
+        <span>セル内改行</span>
+        <select id="newlineMode">
+          <option value="br">&lt;br&gt;</option>
+          <option value="space">スペース</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="editor-grid">
+      <div class="editor-pane">
+        <div class="pane-label">入力</div>
+        <textarea id="inputArea" placeholder="Excelからコピーした内容を貼り付けてください"></textarea>
+      </div>
+      <div class="editor-pane">
+        <div class="pane-label">プレビュー</div>
+        <textarea id="outputArea" readonly placeholder="変換結果がここに表示されます"></textarea>
+      </div>
+    </div>
+
+    <div class="action-row">
+      <button class="btn-convert" id="convertBtn">変換してクリップボードにコピー</button>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

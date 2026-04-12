@@ -1,0 +1,95 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+  padding: 48px 24px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #f8fafc;
+}
+
+header p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #94a3b8;
+}
+
+.section {
+  max-width: 960px;
+  margin: 0 auto 56px;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #1e293b;
+  border: 1px solid #2d3f55;
+  border-radius: 12px;
+  padding: 32px 16px;
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: background 0.15s, border-color 0.15s, transform 0.15s;
+  min-height: 140px;
+}
+
+.tile:hover {
+  background: #243447;
+  border-color: #4a90d9;
+  transform: translateY(-3px);
+}
+
+.tile-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.tile-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tile-tag {
+  font-size: 0.72rem;
+  color: #64748b;
+  background: #0f1117;
+  border: 1px solid #2d3f55;
+  border-radius: 4px;
+  padding: 2px 8px;
+}

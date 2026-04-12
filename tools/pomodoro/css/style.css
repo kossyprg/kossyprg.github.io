@@ -1,0 +1,301 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-work: #f97316;
+  --clr-work-glow: rgba(249, 115, 22, 0.35);
+  --clr-break: #06b6d4;
+  --clr-break-glow: rgba(6, 182, 212, 0.35);
+  --clr-accent: var(--clr-work);
+  --clr-accent-glow: var(--clr-work-glow);
+  --bg: #080c14;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f1f5f9;
+  --text-muted: #64748b;
+  --ring-track: rgba(255, 255, 255, 0.07);
+  --transition-phase: color 0.6s ease, stroke 0.6s ease, box-shadow 0.6s ease;
+}
+
+[data-phase="work"] {
+  --clr-accent: var(--clr-work);
+  --clr-accent-glow: var(--clr-work-glow);
+}
+
+[data-phase="break"] {
+  --clr-accent: var(--clr-break);
+  --clr-accent-glow: var(--clr-break-glow);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249,115,22,0.06) 0%, transparent 70%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 64px;
+  transition: background-image 0.6s ease;
+}
+
+[data-phase="break"] body,
+[data-phase="break"] {
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(6,182,212,0.06) 0%, transparent 70%);
+}
+
+/* ===== Back Link ===== */
+.back-link {
+  align-self: flex-start;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  margin-bottom: 32px;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
+/* ===== Layout ===== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 620px;
+}
+
+/* ===== App Title ===== */
+.app-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ===== Timer Card ===== */
+.timer-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 24px;
+  padding: 48px 40px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  backdrop-filter: blur(12px);
+}
+
+/* ===== Status Label ===== */
+.status-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  height: 1em;
+  transition: var(--transition-phase);
+}
+
+/* ===== Ring ===== */
+.ring-wrap {
+  position: relative;
+  width: 288px;
+  height: 288px;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: var(--ring-track);
+  stroke-width: 10;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--clr-accent);
+  stroke-width: 10;
+  stroke-linecap: round;
+  /* circumference = 2 * π * 128 ≈ 804.25 */
+  stroke-dasharray: 804.25;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 8px var(--clr-accent-glow));
+  transition: stroke-dashoffset 1s linear, stroke 0.6s ease, filter 0.6s ease;
+}
+
+.ring-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ===== Phase & Time ===== */
+.phase-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  transition: var(--transition-phase);
+}
+
+.time-display {
+  font-size: 4.4rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  text-shadow: 0 0 32px var(--clr-accent-glow);
+  transition: text-shadow 0.6s ease;
+  line-height: 1;
+}
+
+/* ===== Buttons ===== */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 17px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s, background 0.6s ease, box-shadow 0.6s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--clr-accent);
+  color: #0a0a0a;
+  box-shadow: 0 4px 20px var(--clr-accent-glow);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-muted);
+  border: 1px solid var(--surface-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+}
+
+/* ===== Settings Card ===== */
+.settings-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  padding: 28px 32px;
+  backdrop-filter: blur(12px);
+}
+
+.settings-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.settings-grid {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.setting-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.setting-divider {
+  width: 1px;
+  height: 56px;
+  background: var(--surface-border);
+  margin: 0 20px;
+  flex-shrink: 0;
+}
+
+.setting-label {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.time-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.input-unit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: default;
+}
+
+.input-unit input {
+  width: 72px;
+  padding: 9px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  /* hide spinner arrows */
+  -moz-appearance: textfield;
+}
+
+.input-unit input::-webkit-inner-spin-button,
+.input-unit input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-unit input:focus {
+  border-color: var(--clr-accent);
+  box-shadow: 0 0 0 3px var(--clr-accent-glow);
+}
