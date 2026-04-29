@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCII ツリーメーカー</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="back-link" href="../../index.html">← Portfolio</a>
+
+  <main>
+    <h1 class="app-title">ASCII ツリーメーカー</h1>
+
+    <div class="options-bar">
+      <label class="option-item">
+        <span>枝の長さ</span>
+        <select id="branchLen">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="editor-grid">
+      <div class="editor-pane">
+        <label class="pane-label" for="inputArea">入力</label>
+        <textarea id="inputArea" placeholder="階層をスペースのインデントで表してください。&#10;例：&#10;usr&#10; bin&#10; lib&#10; local&#10;  bin&#10;  lib&#10;home&#10; alice&#10;  Documents&#10;  Downloads&#10; bob"></textarea>
+      </div>
+      <div class="editor-pane">
+        <label class="pane-label" for="outputArea">プレビュー（変換後）</label>
+        <textarea id="outputArea" readonly placeholder="変換結果がここに表示されます"></textarea>
+        <div class="action-row">
+          <button class="btn-copy" id="copyBtn" disabled>クリップボードにコピー</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
